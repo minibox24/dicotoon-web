@@ -207,4 +207,31 @@ hr {
   border: 1px solid #ededed;
   margin: 0.5rem 1rem;
 }
+
+@media (max-width: 768px) {
+  .info {
+    flex-direction: column;
+  }
+
+  .infos {
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+
+  .user-tooltip-container {
+    left: -20px;
+  }
+
+  .user-container:nth-child(5n + 3) .user-tooltip-container {
+    left: -80px !important;
+  }
+
+  .user-container:nth-child(5n + 4) .user-tooltip-container {
+    left: -140px !important;
+  }
+
+  .user-container:nth-child(5n + 5) .user-tooltip-container {
+    left: -160px !important;
+  }
+}
 </style>
