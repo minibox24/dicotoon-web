@@ -3,12 +3,43 @@
     <div class="items">
       <span class="title">DicoToon</span>
       <div class="input-wrapper">
-        <input class="input" placeholder="여기에 채널 아이디를 입력하세요" />
-        <img src="@/assets/arrow.svg" class="icon" />
+        <input
+          class="input"
+          placeholder="여기에 채널 아이디를 입력하세요"
+          v-model="id"
+        />
+        <img src="@/assets/arrow.svg" class="icon" @click="go" />
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      id: null,
+    };
+  },
+  methods: {
+    async go() {
+      const res = await fetch(
+        `http://localhost:8000/channels/${this.id}/exist`,
+        { method: "GET" }
+      );
+
+      const data = await res.json();
+
+      if (!data.exist) {
+        this.$toast.error(
+          `채널 ${this.id}을 찾을 수 없습니다. <vue-router to="/usage">사용법 보기</vue-router>`,
+          { duration: 10000 }
+        );
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
 .home {
