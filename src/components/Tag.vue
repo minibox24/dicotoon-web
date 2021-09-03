@@ -1,6 +1,6 @@
 <template>
   <div class="tag">
-    <img class="cover" :src="image" @click="go" />
+    <img class="cover" :src="image" @click="go" @error="error" />
     <router-link class="title" :to="to">{{ title }}</router-link>
     <span class="images">{{ images }}컷</span>
   </div>
@@ -12,6 +12,9 @@ export default {
   methods: {
     go() {
       this.$router.push(this.to);
+    },
+    error(event) {
+      event.target.src = "https://via.placeholder.com/70x40?text=+";
     },
   },
 };
