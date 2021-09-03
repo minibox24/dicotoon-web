@@ -47,7 +47,7 @@
     <div class="tags">
       <Tag
         :to="`/channels/${this.$route.params.id}/all`"
-        image=""
+        :image="this.thumbnail"
         title="전체 보기"
         :images="this.all"
       />
