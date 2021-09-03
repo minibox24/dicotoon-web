@@ -95,6 +95,7 @@ export default {
 <style scoped>
 .menu {
   padding: 2rem;
+  margin: 0 10vw;
 }
 
 .info {
@@ -209,6 +210,10 @@ hr {
 }
 
 @media (max-width: 768px) {
+  .menu {
+    margin: 0;
+  }
+
   .info {
     flex-direction: column;
   }
