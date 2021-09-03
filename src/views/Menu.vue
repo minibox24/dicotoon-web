@@ -71,7 +71,7 @@ export default {
   },
   async mounted() {
     const res = await fetch(
-      `http://localhost:8000/channels/${this.$route.params.id}`,
+      `https://pi.minibox.xyz/dicotoon/channels/${this.$route.params.id}`,
       { method: "GET" }
     ).catch();
 

@@ -24,7 +24,7 @@ export default {
   methods: {
     async go() {
       const res = await fetch(
-        `http://localhost:8000/channels/${this.id}/exist`,
+        `https://pi.minibox.xyz/dicotoon/channels/${this.id}/exist`,
         { method: "GET" }
       );
 

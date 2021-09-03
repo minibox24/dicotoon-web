@@ -26,7 +26,7 @@ export default {
   async mounted() {
     const id = this.$route.params.id;
 
-    const infoRes = await fetch(`http://localhost:8000/channels/${id}`, {
+    const infoRes = await fetch(`https://pi.minibox.xyz/dicotoon/channels/${id}`, {
       method: "GET",
     }).catch();
 
@@ -38,7 +38,7 @@ export default {
     this.name = infoData.name;
 
     const imagesRes = await fetch(
-      `http://localhost:8000/channels/${id}/images`,
+      `https://pi.minibox.xyz/dicotoon/channels/${id}/images`,
       { method: "GET" }
     ).catch();
 
