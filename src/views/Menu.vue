@@ -8,11 +8,11 @@
           <div class="about-items">
             <div class="about-item">
               <img src="@/assets/time.svg" />
-              <span>13일 전 시작</span>
+              <span> {{ date }}일 전 시작 </span>
             </div>
             <div class="about-item">
               <img src="@/assets/images.svg" />
-              <span>653컷</span>
+              <span>{{ this.all }}컷</span>
             </div>
           </div>
         </div>
@@ -44,15 +44,28 @@
       </div>
     </div>
     <hr />
-    <div class="tags"></div>
+    <div class="tags">
+      <Tag
+        :to="`/channels/${this.$route.params.id}/all`"
+        image=""
+        title="전체 보기"
+        :images="this.all"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import Tag from "@/components/Tag.vue";
+
 export default {
+  components: { Tag },
   data() {
     return {
       name: "",
+      all: 0,
+      thumbnail: null,
+      date: null,
       contributors: [],
     };
   },
@@ -69,6 +82,11 @@ export default {
     const data = await res.json();
 
     this.name = data.name;
+    this.all = data.all;
+    this.thumbnail = data.thumbnail;
+    this.date = Math.round(
+      (new Date() - new Date(data.startAt)) / (1000 * 3600 * 24)
+    );
     this.contributors = data.contributors;
   },
 };
@@ -181,6 +199,12 @@ export default {
 }
 
 hr {
-  border: 1px solid rgba(170, 170, 170, 0.34);
+  border: 1px solid #c9c9c9;
+  margin: 1.5rem 0;
+}
+
+.tags-hr {
+  border: 1px solid #ededed;
+  margin: 0.5rem 1rem;
 }
 </style>
