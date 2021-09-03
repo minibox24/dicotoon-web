@@ -12,7 +12,7 @@ const routes = [
     path: "/channels/:id",
     name: "Menu",
     component: Menu,
-  }
+  },
 ];
 
 const router = createRouter({
