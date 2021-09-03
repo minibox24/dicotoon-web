@@ -1,7 +1,13 @@
 <template>
   <div class="header">
     <router-link class="url title" to="/">DicoToon</router-link>
-    <a class="url" href="#" target="_blank">봇 초대</a>
+    <a
+      class="url"
+      href="https://discord.com/api/oauth2/authorize?client_id=883295202075344916&scope=bot"
+      target="_blank"
+    >
+      봇 초대
+    </a>
     <a class="url" href="https://discord.gg/pbd2xXJ" target="_blank">
       서포트 서버
     </a>
