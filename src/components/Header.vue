@@ -10,7 +10,8 @@
 
 <style scoped>
 .header {
-  padding-left: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 0.8rem;
   display: flex;
   align-items: center;
   gap: 1rem;
