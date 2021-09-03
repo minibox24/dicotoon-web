@@ -31,10 +31,9 @@ export default {
       const data = await res.json();
 
       if (!data.exist) {
-        this.$toast.error(
-          `채널 ${this.id}을 찾을 수 없습니다. <vue-router to="/usage">사용법 보기</vue-router>`,
-          { duration: 10000 }
-        );
+        this.$toast.error(`채널 ${this.id}을 찾을 수 없습니다.`, {
+          duration: 10000,
+        });
       }
     },
   },
