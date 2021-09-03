@@ -62,7 +62,9 @@ export default {
 }
 
 .contributors {
+  width: 240px;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -74,7 +76,7 @@ export default {
 .user-tooltip-container {
   position: relative;
   top: 10px;
-  left: -80px;
+  left: -20px;
 }
 
 .user-tooltip {
