@@ -30,7 +30,9 @@ export default {
 
       const data = await res.json();
 
-      if (!data.exist) {
+      if (data.exist) {
+        this.$router.push({ name: "Menu", params: { id: this.id } });
+      } else {
         this.$toast.error(`채널 ${this.id}을 찾을 수 없습니다.`, {
           duration: 10000,
         });
