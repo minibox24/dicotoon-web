@@ -5,12 +5,10 @@ import Menu from "../views/Menu.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
     component: Home,
   },
   {
     path: "/channels/:id",
-    name: "Menu",
     component: Menu,
   },
 ];
