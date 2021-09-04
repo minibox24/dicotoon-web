@@ -1,9 +1,19 @@
 <template>
-  <div class="view">
-    <img class="icon" src="@/assets/back.svg" @click="goBack" />
+  <div class="view" :class="isDark ? 'dark' : ''">
+    <div class="icons">
+      <img class="icon" src="@/assets/back.svg" @click="goBack" />
+      <img
+        v-if="!isDark"
+        class="icon"
+        src="@/assets/dark.svg"
+        @click="changeMode"
+      />
+      <img v-else class="icon" src="@/assets/light.svg" @click="changeMode" />
+    </div>
     <p class="title">{{ name }}</p>
     <div class="content">
       <img
+        class="toon-img"
         :title="index + 1"
         loading="lazy"
         v-for="(image, index) in images"
@@ -21,6 +31,7 @@ export default {
       name: "",
       tag: "",
       images: [],
+      isDark: false,
     };
   },
   async mounted() {
@@ -52,14 +63,35 @@ export default {
     goBack() {
       this.$router.push(`/channels/${this.$route.params.id}`);
     },
+    changeMode() {
+      this.isDark = !this.isDark;
+    },
   },
 };
 </script>
 
 <style scoped>
+.view {
+  transition: 0.25s;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.dark .icon {
+  filter: invert(1);
+}
+
+.icons {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+}
+
 .icon {
   width: 30px;
-  margin: 1rem;
 }
 
 .title {
@@ -69,14 +101,14 @@ export default {
   margin-top: 0;
 }
 
-img {
+.toon-img {
   width: 690px;
   display: block;
   margin: 1rem auto;
 }
 
 @media (max-width: 990px) {
-  img {
+  .toon-img {
     width: 100%;
     max-width: 690px;
     margin-top: 1rem;
