@@ -26,9 +26,12 @@ export default {
   async mounted() {
     const id = this.$route.params.id;
 
-    const infoRes = await fetch(`https://pi.minibox.xyz/dicotoon/channels/${id}`, {
-      method: "GET",
-    }).catch();
+    const infoRes = await fetch(
+      `https://pi.minibox.xyz/dicotoon/channels/${id}`,
+      {
+        method: "GET",
+      }
+    ).catch();
 
     if (infoRes.status !== 200) {
       return this.$router.push("/");

@@ -15,7 +15,7 @@ const routes = [
   {
     path: "/channels/:id/:tag",
     component: View,
-  }
+  },
 ];
 
 const router = createRouter({
