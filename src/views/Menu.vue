@@ -153,6 +153,7 @@ export default {
 .user-icon {
   width: 40px;
   border-radius: 50%;
+  transition: 0.15s;
 }
 
 .user-tooltip-container {
@@ -180,6 +181,12 @@ export default {
 .user-container:hover .user-tooltip {
   opacity: 1;
   visibility: visible;
+}
+
+.user-container:hover .user-icon {
+  display: run-in;
+  transform: scale(1.5);
+  border-radius: 25%;
 }
 
 .user-avatar {
