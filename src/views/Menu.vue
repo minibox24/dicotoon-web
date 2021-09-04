@@ -34,7 +34,11 @@
                   <img class="user-avatar" :src="contributor.avatar" />
                   <div class="user-info">
                     <span class="user-name">{{ contributor.name }}</span>
-                    <span class="user-count">{{ contributor.count }}컷</span>
+                    <span class="user-count">
+                      {{ contributor.count }}컷 ({{
+                        ((contributor.count / all) * 100).toFixed(2)
+                      }}%)
+                    </span>
                   </div>
                 </div>
               </div>
@@ -46,10 +50,10 @@
     <hr />
     <div class="tags">
       <Tag
-        :to="`/channels/${this.$route.params.id}/all`"
-        :image="this.thumbnail"
+        :to="`/channels/${$route.params.id}/all`"
+        :image="thumbnail"
         title="전체 보기"
-        :images="this.all"
+        :images="all"
       />
     </div>
   </div>
